@@ -1,0 +1,31 @@
+.btnDiv{
+    color:var(--white);
+    font-weight: 600;
+    width:min-content;
+    padding:0.5rem 1rem;
+    background-color: var(--blue);
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    min-width: 65px;
+    text-align: center;
+}
+.btnDiv:hover{
+    box-shadow: 5px 5px 10px rgba(58,128,233,0.5);
+}
+.outlineBtnDiv{
+    color:var(--white);
+    font-weight: 600;
+    width:min-content;
+    padding:0.5rem 1rem;
+    background-color: var(--black);
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    border:1px solid var(--blue);
+    min-width: 65px;
+    text-align: center;
+}
+.outlineBtnDiv:hover{
+    background-color: var(--blue);
+    color:var(--white);
+    transition: all 0.22s;
+}

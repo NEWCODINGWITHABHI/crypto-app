@@ -1,0 +1,133 @@
+.grid_box{
+    width:200px;
+    min-height:200px;
+    display: flex;
+    background-color: var(--darkgrey);
+    flex-direction: column;
+    align-items:flex-start;
+    justify-content:flex-start;
+    gap:1.5rem;
+    border-radius: 0.8rem;
+    padding:1.5rem;
+    border: 2px solid var(--darkgrey);
+}
+.info_flex{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width:100%;
+    gap:1rem;
+}
+.coin_logo{
+    width:3rem;
+    height:3rem;
+    border-radius: 50%;;
+}
+.name_flex p{
+    margin:0;
+    margin-bottom: 0.1rem;
+}
+.coin_symbol{
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+.coin_name{
+    font-size: 0.8rem;
+    color:var(--grey);
+}
+.coin_chip{
+    border:2px solid var(--green);
+    padding:0.5rem 1rem;
+    border-radius: 2rem;
+    color:var(--green);
+    font-size: 0.8rem;
+    font-weight: 600;
+    min-width:50px;
+    text-align: center;
+
+}
+.coin_chip:hover{
+    background-color: var(--green) !important;
+    border-color: var(--green)!important;
+    color: var(--white)!important;
+    transition:all 0.33s;
+}
+.chip_flex{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+.icon{
+    border: 2px solid var(--green);
+    padding:0.35rem;
+    border-radius: 50%;
+    color:var(--green);
+}
+.icon:hover{
+    background-color: var(--green);
+    border-color: var(--green);
+    color: var(--white);
+    transition:all 0.33s;
+}
+.icon-red{
+    color:red;
+    border-color:red ;
+}
+.chip_red{
+    border:2px solid var(--red);
+    padding:0.5rem 1rem;
+    border-radius: 2rem;
+    color:var(--red);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+.chip_red:hover{
+    background-color: var(--red) !important;
+    border-color: var(--red)!important;
+    color: var(--white)!important;
+    transition:all 0.33s;
+}
+.coin-price{
+    color:var(--red);
+    border-color: var(--red);
+}
+.volume-container{
+    margin-top: -2.3rem;
+}
+.volume-text{
+    margin-bottom:0.2rem;
+    font-size: 0.6rem;
+    color: var(--grey);
+}
+.volume-container strong{
+    color:rgb(209, 207, 207);
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.grid_box:hover{
+    border:2px solid var(--green);
+    transform: scale(1.05);
+    transition: all 0.33s;
+}
+.grid_box_red:hover{
+    border:2px solid var(--red);
+    transform: scale(1.05);
+    transition: all 0.33s;
+}
+
+@media only screen and (max-width:800px) {
+    /* .grid_box{
+        width:80%;
+       align-items: center;
+    } */
+    .info_flex{
+        width:80%;
+    }
+    .coin_chip{
+        min-width:0px;
+        padding:0.25rem 0.5rem;
+    }
+}

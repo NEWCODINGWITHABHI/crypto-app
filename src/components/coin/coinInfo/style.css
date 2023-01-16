@@ -1,0 +1,11 @@
+.desc-links a{
+    text-decoration:underline;
+    color:var(--grey);
+}
+.desc-links{
+   text-align:justify;
+}
+.desc-links a:hover{
+    color:var(--blue);
+    cursor: pointer;
+}
