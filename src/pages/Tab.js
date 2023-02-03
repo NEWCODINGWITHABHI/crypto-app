@@ -10,7 +10,7 @@ import './tab.css'
 import List from './list-component/List';
 
 export default function Tabs({data}) {
-    console.log(data);
+    console.log(data,"watchlist data");
   const [value, setValue] = React.useState('grid');
 
   const handleChange = (event,newValue) => {
@@ -57,7 +57,7 @@ export default function Tabs({data}) {
           <table className='list-flex'>
              {
               data.map((item,i)=>(
-                <List coin={item} delay={i%7*0.1}/>
+                <List coin={item} delay={i%7*0.1} key={i}/>
               ))
              }
           </table>

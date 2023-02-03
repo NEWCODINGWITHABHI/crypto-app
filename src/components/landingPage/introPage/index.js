@@ -4,8 +4,10 @@ import Button from '../../button';
 // import OutlineButton from '../../button/OutlineButton';
 import {motion} from 'framer-motion'
 import PhoneComponent from './PhoneComponent';
+import Footer from '../../footer/Footer';
 function LandingIntro() {
   return (
+    <>
     <div className={style.wrapper}>
        <div className={style.info}>
         <motion.h1 
@@ -39,10 +41,14 @@ function LandingIntro() {
             <Button text="Share" outline={true}/>
         </motion.div>
        </div>
+
        <div className={style.phone}>
         <PhoneComponent/>
        </div>
+
     </div>
+       <Footer/>
+    </>
   )
 }
 

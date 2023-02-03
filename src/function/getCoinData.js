@@ -5,6 +5,7 @@ export const getCoinData = (id) => {
   const data = axios
     .get(`${COIN_GECKO_V3}/coins/${id}`)
     .then((response) => {
+     
       return response.data;
     })
     .catch((error) => {

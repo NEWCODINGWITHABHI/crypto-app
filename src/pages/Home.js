@@ -2,10 +2,10 @@ import React from 'react'
 import Header from '../components/header/index';
 import LandingIntro from '../components/landingPage/introPage';
 
-const Home = () => {
+const Home = ({mode,changeMode}) => {
   return (
     <div>
-      <Header/>
+      <Header changeMode={changeMode} mode={mode}/>
       <LandingIntro/>
     </div>
   )

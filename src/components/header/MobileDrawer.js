@@ -11,7 +11,7 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
-import style from "./header.module.css";
+import style from "./style.module.css";
 import { Link } from 'react-router-dom';
 
 export default function MobileDrawer() {
@@ -75,28 +75,27 @@ export default function MobileDrawer() {
 
   return (
     <div className={style.drawerDiv}>
-     
-       
-          <MenuRoundedIcon className={style.menu} style={{size:'40px' ,color:"white"}} onClick={()=>setOpen(true)} />
-          <Drawer
-            anchor={"right"}
-            open={open}
-            onClose={()=>setOpen(false)}
-          >
-    <div className={style.drawer}>
-          <Link to='/'>
-                 <p className={style.link}>Home </p>
-           </Link>
-       <Link to='/compare'>
-            <p className={style.link}>Compare</p>
-       </Link>
-       <Link to='/dashboard'>
-          <p>Dashboard</p>
-       </Link> 
-       
-           </div>
-          </Drawer>
-     
+      <MenuRoundedIcon
+        className={style.menu}
+        style={{ size: "40px", color: "white" }}
+        onClick={() => setOpen(true)}
+      />
+      <Drawer anchor={"right"} open={open} onClose={() => setOpen(false)}>
+        <div className={style.drawer}>
+          <Link to="/">
+            <p className={style.draweLinks}>Home </p>
+          </Link>
+          <Link to="/compare">
+            <p className={style.draweLinks}>Compare</p>
+          </Link>
+          <Link to="/watchlist">
+            <p className={style.draweLinks}>Watchlist</p>
+          </Link>
+          <Link to="/dashboard">
+            <p className={style.draweLinks}>Dashboard</p>
+          </Link>
+        </div>
+      </Drawer>
     </div>
   );
 }

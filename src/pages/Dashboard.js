@@ -8,6 +8,7 @@ import { ListItem } from '@mui/material';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import Loading from '../components/loading/Loading';
 import PaginationComponent from '../components/pagination/PaginationComponent';
+import Footer from '../components/footer/Footer';
 const Dashboard = () => {
 const [data,setData]=useState([]);
 const [search,setSearch]=useState('');
@@ -63,23 +64,30 @@ const handleChange=(event,value)=>{
   console.log(pageCoins);
  }
   return (
+    <>
     <div>
-    <Header/>
-    {
-      loading?<Loading/>:<>
-    <Search search={search} setSearch={setSearch}/>
-    <Tabs data={search?filteredCoins:pageCoins}/>
-    <div onClick={()=>topFunction()} id='myBtn' className='top-btn'>
-      <ArrowUpwardIcon sx={{color:"var(--blue)"}}/>
+      <Header />
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <Search search={search} setSearch={setSearch} />
+          <Tabs data={search ? filteredCoins : pageCoins} />
+          <div onClick={() => topFunction()} id="myBtn" className="top-btn">
+            <ArrowUpwardIcon sx={{ color: "var(--blue)" }} />
+          </div>
+          {!search && (
+            <PaginationComponent
+              pageNumber={pageNumber}
+              handleChange={handleChange}
+            />
+          )}
+        </>
+      )}
     </div>
-    {!search&&(
-    <PaginationComponent pageNumber={pageNumber} handleChange={handleChange} />
-    )}
+      <Footer />
       </>
-    }
-      
-    </div>
-  )
+  );
 }
 
 export default Dashboard

@@ -1,9 +1,9 @@
 
 
 .container{
-    position:sticky;
+    position:relative;
     top: 0;
-    z-index: 900;
+    /* z-index: 900 */
     padding: 0.75rem 1.5rem;
     display: flex;
     justify-content: space-between;
@@ -18,7 +18,7 @@
     font-size: 1.4rem;
     margin:0;
     padding-left:3rem ;
-    color:white;
+    color:var(--white);
 }
 .link{
     display: flex;
@@ -30,13 +30,13 @@
     /* margin-right: 15rem; */
 } 
 a{
-    color: var(--white);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 1.1rem;
     color:var(--grey);
 }
-nav .container .link:hover{
-   color:var(--white);
+ .container .link p:hover{
+   color:var(--white) !important;
    transition:all 0.3s;
 }
 .drawer{
@@ -55,6 +55,11 @@ nav .container .link:hover{
 .drawerDiv{
     display:none;
 }
+.drawerDiv .draweLinks{
+    font-weight: 600;
+    font-size: 1.1rem;
+    color:var(--grey);
+}
 @media only screen and (max-width:800px){
     .drawerDiv{
         display: block;
@@ -66,12 +71,15 @@ nav .container .link:hover{
         transition:all 0.33s;
     }
   
-    .links{
+    .link{
         display: none;
     }
 
     .heading{
         font-size: 1rem;
     }
+  .container{
+    padding: 1.5rem;
+  }
    
 }

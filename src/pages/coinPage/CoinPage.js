@@ -11,11 +11,15 @@ import { getCoinPrices } from '../../function/getCoinPrices';
 import { getDaysArray } from '../../function/getDaysArray';
 import List from '../list-component/List';
 import { getDate } from '../../function/getDaysArray';
+import SelectDays from '../../components/coin/selectdays';
+import SelectPrice from '../../components/coin/selectPrice';
+import settingSingleChartData from '../../function/settingSingleChartData';
 function CoinPage() {
    const {id}=useParams();
    const [loading,setLoading]=useState(true);
    const [days,setDays]=useState(7);
    const [coin,setCoin]=useState({});
+   const [priceType, setPriceType] = useState("prices");
    const today=new Date();
    const priorDate=new Date(new Date().setDate(today.getDate()-days));
    console.log(priorDate);
@@ -63,8 +67,9 @@ function CoinPage() {
        }
     },[id])
     const getData=async ()=>{
+        setLoading(true);
         const data=await getCoinData(id);
-        const prices=await getCoinPrices(id,days);
+        const prices=await getCoinPrices(id,days,priceType);
         if(data){
             setCoin({
                 id:data.id,
@@ -77,26 +82,13 @@ function CoinPage() {
                 current_price:data.market_data.current_price.usd,
                 market_cap:data.market_data.market_cap.usd
             })
-            setLoading(false);
+           
         }
         if(prices){
-            console.log(prices,"prices...")
-            setChartData({
-                labels:prices?.map((data)=>getDate(data[0])),
-                datasets:[
-                    {
-                        label:"prices",
-                        data:prices?.map((data)=>data[1]),
-                        fill:false,
-                        borderColor:"#3a80e9",
-                        tension:0.1,
-                        borderWidth:2,
-                        pointRadius:0,
-
-
-                    }
-                ]
-            })
+            console.log(prices,"priiiiiiiiii")
+          settingSingleChartData(setChartData,prices,coin)
+          console.log("tttttttttttttt");
+          setLoading(false);
         }
     }
    
@@ -126,24 +118,57 @@ function CoinPage() {
     // },[id])
     // console.log(coin,coin.image,"coin....")
       
-       
+       const changeDataWithDays= async ()=>{
+          setLoading(true);
+          const prices=await getCoinPrices(id ,days,priceType);
+          if(prices){
+
+              settingSingleChartData(setChartData,prices,coin);
+              setLoading(false);
+          }
+       }
+
+       const changeDataWithPrices= async ()=>{
+        setLoading(true);
+        console.log(id,days,priceType,"id days price")
+        const prices=await getCoinPrices(id,days,priceType);
+        console.log(prices,"pppppp")
+        if(prices){
+
+            settingSingleChartData(setChartData,prices,coin);
+            setLoading(false);
+        }
+       }
+
+       useEffect(()=>{
+        changeDataWithDays();
+        changeDataWithPrices();
+       },[days,priceType]);
     
     
 
 return (
-    <div>
-      <Header/>
-    
-      {loading?<Loading/>:
+  <div>
+    <Header />
+
+    {loading || !chartData || !coin.id ? (
+      <Loading />
+    ) : (
       <>
-      <div className='grey-container'>
-      <List coin={coin}/>
-      </div>
-      <LineChart chartData={chartData}/>
-      <CoinInfo name={coin.name} desc={coin.desc}/>
-      </>} 
-    </div>
-  )
+        <div style={{ width: "90vw", margin: "auto" }}>
+          <List coin={coin} />
+        </div>
+
+        <div className="grey-container">
+          <SelectDays days={days} setDays={setDays} />
+          <SelectPrice priceType={priceType} setPriceType={setPriceType} />
+          <LineChart chartData={chartData} />
+        </div>
+        <CoinInfo name={coin.name} desc={coin.desc} />
+      </>
+    )}
+  </div>
+);
 }
 
 export default CoinPage

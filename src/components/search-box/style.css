@@ -9,14 +9,21 @@
     color: var(--lightgrey);
     gap: 0.5rem;
     border-radius: 3rem;
+    background-color: var(--white);
 }
 .search-box .search-icon{
     color: var(--grey) !important;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--black);
 }
 .search-box input{
     width: 100%;
-    background-color: var(--darkgrey);
-    color:var(--lightgrey) ;
+    /* background-color: var(--darkgrey); */
+    background-color:var(--white);
+    /* color:var(--lightgrey) ; */
+    color: var(--black);
+    font-size: 1.2rem;
     font-family: "Inter",sans-serif;
     border: none;
 }
