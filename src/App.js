@@ -9,7 +9,6 @@ import WatchlistPage from './pages/watchlist/WatchlistPage';
 import { useEffect, useState } from 'react';
 import { ThemeContext } from '@emotion/react';
  import { ToastContainer } from "react-toastify";
-import Footer from './components/footer/Footer';
 import { DocumentScannerTwoTone } from '@mui/icons-material';
 
 function App() {
@@ -67,5 +66,4 @@ function App() {
         </>
   );
 }
-
 export default App;
