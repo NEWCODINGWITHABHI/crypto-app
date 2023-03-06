@@ -1,0 +1,16 @@
+
+  .select-coin-div span{
+    margin-right: 1rem;
+  }
+
+  
+  @media only screen and (max-width:768px){
+      .select-coin-div{
+          flex-direction: column;
+          
+        }
+        .days{
+            position: relative;
+            margin-left: 5rem;
+        }
+}

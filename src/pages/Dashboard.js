@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import axios from 'axios';
 import {DASHBOARD_API_URL} from '../constants';
 import Header from '../components/header';
@@ -15,6 +15,8 @@ const [search,setSearch]=useState('');
 const [loading,setLoading]=useState(true);
 const [pageNumber,setPageNumber]=useState(1)
 const [pageCoins, setPageCoins] = useState([]);
+
+const btnRef=useRef(null);
 
 var filteredCoins = data.filter((item) => {
   if (
@@ -40,21 +42,25 @@ var filteredCoins = data.filter((item) => {
 
 
  function topFunction(){
+  // console.log("button");
   document.body.scrollTop=0;
   document.documentElement.scrollTop=0;
  }
 
  let myButton=document.getElementById("myBtn");
+ console.log(btnRef)
  window.onscroll=function(){
-  scrollFunction();
+  console.log("scroll")
+  scrollFunction(btnRef);
  }
- function scrollFunction(){
+ function scrollFunction(btnRef){
   if(document.body.scrollTop>100||
     document.documentElement.scrollTop>100){
-    myButton.style.display="flex";
+    btnRef.current.style.display="flex";
     }
     else{
-      myButton.style.display="none";
+      console.log("bbbbbbbb")
+      btnRef.current.style.display="none";
     }
  }
 const handleChange=(event,value)=>{
@@ -73,7 +79,9 @@ const handleChange=(event,value)=>{
         <>
           <Search search={search} setSearch={setSearch} />
           <Tabs data={search ? filteredCoins : pageCoins} />
-          <div onClick={() => topFunction()} id="myBtn" className="top-btn">
+          <div
+          ref={btnRef}
+           onClick={() => topFunction()} id="myBtn" className="top-btn">
             <ArrowUpwardIcon sx={{ color: "var(--blue)" }} />
           </div>
           {!search && (

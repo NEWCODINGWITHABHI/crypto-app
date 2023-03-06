@@ -16,8 +16,8 @@ import setCompareChartData from '../../function/setCompareChartData';
 import List from '../list-component/List';
 function ComparePage() {
     const [allCoins,setAllCoins]=useState([]);
-    const [coinId1,setCoinId1]=useState("bitcoin");
-    const [coinId2,setCoinId2]=useState("ethereum");
+    const [coinId1,setCoinId1]=useState("usd-coin");
+    const [coinId2,setCoinId2]=useState("tether");
     const [coinData1,setCoinData1]=useState("");
     const [coinData2,setCoinData2]=useState("");
     const [loading,setLoading]=useState(true);
@@ -40,7 +40,7 @@ function ComparePage() {
         setCoinObject(setCoinData2, dataOfCoin2);
         const prices1 = await getCoinPrices(coinId1, days, priceType);
         const prices2 = await getCoinPrices(coinId2, days, priceType);
-        console.log(prices1, prices2, "prices");
+     
         setCompareChartData(
             setChartData,
             prices1,
@@ -64,14 +64,14 @@ function ComparePage() {
 
     useEffect(()=>{
         getData();
-        console.log("useEffect");
+   
     },[])
     
     let getData=async ()=>{
       
         const data=await getAllCoins();
         setAllCoins(data);
-        console.log(data,"dddddbbbbbb",allCoins)
+
         setLoading(false);
         const dataOfCoin1=await getCoinData(coinId1);
         const dataOfCoin2=await getCoinData(coinId2);

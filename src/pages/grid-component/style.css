@@ -72,8 +72,16 @@
     transition:all 0.33s;
 }
 .icon-red{
-    color:red;
-    border-color:red ;
+     border: 2px solid var(--red);
+    padding:0.35rem;
+    border-radius: 50%;
+    color:var(--red);
+}
+.icon-red:hover{
+     background-color: var(--red);
+    border-color: var(--red);
+    color: var(--white);
+    transition:all 0.33s;
 }
 .chip_red{
     border:2px solid var(--red);
@@ -119,15 +127,14 @@
 }
 
 @media only screen and (max-width:800px) {
-    /* .grid_box{
+ 
+     /* .info_flex{
         width:80%;
-       align-items: center;
     } */
-    .info_flex{
-        width:80%;
-    }
-    .coin_chip{
+    /* .coin_chip{
         min-width:0px;
         padding:0.25rem 0.5rem;
-    }
+    }  */
 }
+
+

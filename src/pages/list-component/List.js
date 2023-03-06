@@ -44,6 +44,7 @@ useEffect(()=>{
         <td className="td-img">
           <img src={coin.image} className="coin_logo" />
         </td>
+
         <td className="td-name-flex">
           <div className="name_flex">
             <p className="coin_symbol name-txt">{coin.symbol}-USD</p>
@@ -87,23 +88,29 @@ useEffect(()=>{
         <td>
           <p className="td-mkt-cap">${coin.total_volume.toLocaleString()}</p>
         </td>
+
         <td className="td-mkt-cap">
           <p>${coin.market_cap.toLocaleString()}</p>
-          <td className="td-vol-cap">
-            console.log(volume);
+          <div className="td-vol-cap">
             <p>${volume}hiiii</p>
-          </td>
+          </div>
         </td>
-        <td>
+
+        <td className="star-icon">
+       
           <IconButton
             onClick={(e) => {
               watchList(e);
             }}
           >
             {added ? (
-              <StarRoundedIcon style={{ color: "green" }} />
+              <StarRoundedIcon
+              className='star'
+               style={{ color: "red", textAlign: "right" }} />
             ) : (
-              <StarBorderRoundedIcon style={{ color: "green" }} />
+              <StarBorderRoundedIcon
+              className='star'
+               style={{ color: "green" }} />
             )}
           </IconButton>
         </td>
