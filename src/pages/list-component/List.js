@@ -51,6 +51,7 @@ useEffect(()=>{
             <p className="coin_name name-txt">{coin.name}</p>
           </div>
         </td>
+        
         <td className="td-chip-flex">
           {coin.price_change_percentage_24h > 0 ? (
             <div className="chip_flex">

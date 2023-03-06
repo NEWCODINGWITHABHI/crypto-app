@@ -1,63 +1,62 @@
-.list-row{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap:0.5rem;
-    padding: 1rem;
-    margin: 1.5rem 0rem;
-    box-shadow: 1px -1px 11px 1px  rgb(16, 44, 99);
-    border-radius: 1rem;
-    cursor: pointer;
-    box-sizing: border-box;
-    position: relative;
+.list-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  margin: 1.5rem 0rem;
+  box-shadow: 1px -1px 11px 1px rgb(16, 44, 99);
+  border-radius: 1rem;
+  cursor: pointer;
+  box-sizing: border-box;
+  position: relative;
 }
-.list-row:hover{
-    background-color: var(--darkgrey);
+.list-row:hover {
+  background-color: var(--darkgrey);
 }
-.list-row td{
-    text-align: left !important;
-    width:18%;
-  
+.list-row td {
+  text-align: left !important;
+  width: 18%;
+  background-color: ;
 }
 
-.td-chip-flex{
-    min-width: 10rem;
+.td-chip-flex {
+  min-width: 10rem;
 }
-.td-img{
-    width:3rem !important;
+.td-img {
+  width: 3rem !important;
 }
-.td-name-flex{
-    min-width: 100px;
+.td-name-flex {
+  min-width: 100px;
 }
 .td-vol-cap {
-    display: none;
+  display: none;
 }
-.star-icon{
-    width: 2rem;
-    height: 4rem;
-    display: flex;
-    justify-content:flex-end;
-    align-items: center;
+.star-icon {
+  width: 2rem;
+  height: 4rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
-.star-icon .star{
-    /* position:absolute;
+.star-icon .star {
+  /* position:absolute;
     left:10rem;
     top: 1rem; */
-    /* bottom: 0; */
+  /* bottom: 0; */
 }
 
-@media only screen and (max-width:900px){
-    .td-mkt-cap{
-        display: none;
-    }
-    .td-vol-cap{
-        display: block;
-       
-    }
+@media only screen and (max-width: 900px) {
+  .td-mkt-cap {
+    display: none;
+  }
+  .td-vol-cap {
+    display: block;
+  }
 }
 
-@media only screen and (max-width:880px) {
-    /* .list-row{
+@media only screen and (max-width: 880px) {
+  /* .list-row{
         gap:0.3rem;
         padding:0rem;
     }
@@ -76,7 +75,7 @@
     .percentage-txt{
         font-size: 50%;
     } */
-    /* .td-img{
+  /* .td-img{
         width: min-content;
     }
     .td-img img{
@@ -89,12 +88,37 @@
     .name-txt,
     .td-vol-cap{
         font-size: 70%; */
-    /* } */
+  /* } */
 }
 
+@media only screen and (max-width: 600px) {
+  .list-row {
+    display: flex;
+    gap: 0.3rem;
+    padding: 0rem;
+    justify-content:space-around;
+   
+  }
+  
+  .td-img img {
+    width: 2rem;
+    height: 2rem;
+  }
+  .name-txt {
+    font-size: 0.8rem;
+  }
+  .list-row .td-chip-flex {
+    margin-left: -2rem;
+  }
 
-    @media only screen and (max-width:515px){
-   .list-row{
-    font-size: 45%;
-   }
-} 
+  .list-row .coin-price {
+    /* display: none; */
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width:440px) {
+    .list-row .coin-price {
+    display: none;
+  }
+}
